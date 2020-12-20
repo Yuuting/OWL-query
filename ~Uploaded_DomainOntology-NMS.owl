@@ -1,0 +1,1116 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/Ontology1179610702.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1179610702.owl">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo xml:lang="en">Version: 2.1 [April-25, 2007]</owl:versionInfo>
+    <rdfs:comment xml:lang="en">Description: Domain Ontology for the TCP/IP-based SNMP-managed Communication Network Management System
+
+Author: Sameera Abar
+Kinoshita-lab@Tohoku-University
+
+Created: February-11, 2007</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Hub-C">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Client-PC-C"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Router-C"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Subnet-C"/>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Network-hub connects multiple network-devices at the physical-layer of the OSI-model.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="SMTP-Server-A">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="POP-Server-A"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="has-port.number"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Mail-Server-A"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">Runs the SMTP (Simple Mail Transfer Protocol), to transmit e-mail from a remote server over TCP/IP connection.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="Application-Server-A">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Client-PC-A"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="has-domain.name"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Subnet-A"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">Runs one or more applications shared by client stations, and delivers the content to the Web.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Traffic-Generator-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hub-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Management-Console-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Router-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Performance-Monitor-A"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Router-B">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Subnet-B"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Workstation-B"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Operates at the network-layer of the OSI-model, to determine the optimal path for data-traffic to route between different networks.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Hub-B"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Client-PC-B"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Hub-A">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Management-Console-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Performance-Monitor-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Application-Server-A"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Network-hub connects multiple network-devices at the physical-layer of the OSI-model.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Traffic-Generator-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Client-PC-A"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Subnet-A"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Router-A"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Firewall">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Bridge"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Subnet-C"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Subnet-B"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">'ip-tables' based firewall to protect the network system from malicious users, and to set-up NAT.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sem-K-NMS"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Gateway"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="related-to"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >AI-Lab</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Subnet-A"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Subnet-B">
+    <rdfs:comment xml:lang="en">Subnet-B is an innterconnected, but independent segment of the Sem-K-NMS that is identified by its Internet Protocol (IP) address.</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Gateway"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Firewall"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bridge"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Subnet-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Subnet-C"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#related-to"/>
+        </owl:onProperty>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >VLSI-Lab</owl:hasValue>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Sem-K-NMS"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Network-System"/>
+  <owl:Class rdf:about="#Sem-K-NMS">
+    <rdfs:comment xml:lang="en">Prototype network management system implemented in the laboratory.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Network-System"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Gateway"/>
+          <owl:Class rdf:about="#Firewall"/>
+          <owl:Class rdf:about="#Bridge"/>
+          <owl:Class rdf:about="#Subnet-A"/>
+          <owl:Class rdf:about="#Subnet-B"/>
+          <owl:Class rdf:about="#Subnet-C"/>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#Client-PC-C">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Subnet-C"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Router-C"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hub-C"/>
+    <rdfs:comment xml:lang="en">Computer system that requests information or services from the network-servers.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Subnet-A">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Gateway"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Firewall"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bridge"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Subnet-B"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Subnet-C"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Subnet-A is an innterconnected, but independent segment of the Sem-K-NMS that is identified by its Internet Protocol (IP) address.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >AI-Lab</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#related-to"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Sem-K-NMS"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Client-PC-A">
+    <owl:disjointWith rdf:resource="#Application-Server-A"/>
+    <owl:disjointWith rdf:resource="#Hub-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Management-Console-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Performance-Monitor-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Router-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Traffic-Generator-A"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Computer system that requests information or services from the network-servers.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Subnet-A"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Web-Server-A">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Application-Server-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Mail-Server-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="File-Server-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DNS-Server-A"/>
+    </owl:disjointWith>
+    <rdfs:comment xml:lang="en">Runs the HTTP (Hyper-Text Transfer Protocol) to transmit or retrive the web-pages over TCP/IP connection.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Performance-Monitor-A">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Router-A"/>
+    </owl:disjointWith>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Runs the SNMP (Simple Network Management Protocol) to monitor the operating parameters (traffic), of the network-system.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Hub-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Management-Console-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Client-PC-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Application-Server-A"/>
+    <rdfs:subClassOf rdf:resource="#Subnet-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Traffic-Generator-A"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Hub-B">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Network-hub connects multiple network-devices at the physical-layer of the OSI-model.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Subnet-B"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Client-PC-B"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Router-B"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Workstation-B"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Router-C">
+    <owl:disjointWith rdf:resource="#Client-PC-C"/>
+    <owl:disjointWith rdf:resource="#Hub-C"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Subnet-C"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Operates at the network-layer of the OSI-model, to determine the optimal path for data-traffic to route between different networks.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Subnet-C">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Gateway"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Firewall"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Bridge"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Subnet-A"/>
+    <owl:disjointWith rdf:resource="#Subnet-B"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >DSP-Lab</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#related-to"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Sem-K-NMS"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Subnet-C is an innterconnected, but independent segment of the Sem-K-NMS that is identified by its Internet Protocol (IP) address.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Router-A">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Subnet-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Hub-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Management-Console-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Client-PC-A"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Operates at the network-layer of the OSI-model, to determine the optimal path for data-traffic to route between different networks.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Performance-Monitor-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Application-Server-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Traffic-Generator-A"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Traffic-Generator-A">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Generates TCP/UDP traffic to stress routers/firewall under heavy network load, for analyzing the performance metrics of the prototype system.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Subnet-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Performance-Monitor-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Management-Console-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Hub-A"/>
+    <owl:disjointWith rdf:resource="#Application-Server-A"/>
+    <owl:disjointWith rdf:resource="#Router-A"/>
+    <owl:disjointWith rdf:resource="#Client-PC-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Client-PC-B">
+    <rdfs:comment xml:lang="en">Computer system that requests information or services from the network-servers.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Subnet-B"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Router-B"/>
+    <owl:disjointWith rdf:resource="#Hub-B"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Workstation-B"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Workstation-B">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Subnet-B"/>
+    <owl:disjointWith rdf:resource="#Client-PC-B"/>
+    <owl:disjointWith rdf:resource="#Router-B"/>
+    <owl:disjointWith rdf:resource="#Hub-B"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >High-end desktop system runs scientific applications, and offers greater processing power, memory capacity, and multitasking ability.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#File-Server-A">
+    <rdfs:comment xml:lang="en">Stores files for access by other client computers on the network.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Application-Server-A"/>
+    <owl:disjointWith rdf:resource="#Web-Server-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Mail-Server-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#DNS-Server-A"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Management-Console-A">
+    <owl:disjointWith rdf:resource="#Application-Server-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Performance-Monitor-A"/>
+    <rdfs:subClassOf rdf:resource="#Subnet-A"/>
+    <owl:disjointWith rdf:resource="#Client-PC-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Router-A"/>
+    <owl:disjointWith rdf:resource="#Traffic-Generator-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Hub-A"/>
+    <rdfs:comment xml:lang="en">Computer-system to monitor and detect the commonly occurring TCP/IP-anomalies, in the Sem-K-NMS.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#POP-Server-A">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Mail-Server-A"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#SMTP-Server-A"/>
+    <rdfs:comment xml:lang="en">Runs the POP (Post Office Protocol), to retrieve e-mail from a remote server over TCP/IP connection.</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#DNS-Server-A">
+    <rdfs:comment xml:lang="en">Runs the DNS (Domain Name Service) to translate the domain-names to IP-addresses.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Web-Server-A"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Mail-Server-A"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#File-Server-A"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-port.number"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Application-Server-A"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Bridge">
+    <owl:disjointWith rdf:resource="#Firewall"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >AI-Lab</owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#related-to"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Subnet-A"/>
+    <rdfs:subClassOf rdf:resource="#Sem-K-NMS"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Gateway"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Subnet-C"/>
+    <rdfs:comment xml:lang="en">Network-bridge connects multiple network-segments (LANs), at the data-link layer of the OSI-model.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Subnet-B"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-MAC.address"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Mail-Server-A">
+    <owl:disjointWith rdf:resource="#Web-Server-A"/>
+    <owl:disjointWith rdf:resource="#File-Server-A"/>
+    <owl:disjointWith rdf:resource="#DNS-Server-A"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Runs the application-layer standard protocols (POP + SMTP), to transmit or receive e-mails.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Application-Server-A"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Gateway">
+    <rdfs:comment xml:lang="en">Node (router)  that acts as an entrance to another network. It converts the data traffic from the format used on the LAN to that used on the WAN.</rdfs:comment>
+    <owl:disjointWith rdf:resource="#Firewall"/>
+    <rdfs:subClassOf rdf:resource="#Sem-K-NMS"/>
+    <owl:disjointWith rdf:resource="#Subnet-A"/>
+    <owl:disjointWith rdf:resource="#Subnet-C"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-domain.name"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:about="#has-IP.address"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#Bridge"/>
+    <owl:disjointWith rdf:resource="#Subnet-B"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:ID="has-description">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Represents the name of the networking resource.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#has-domain.name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Text name corresponding to the numeric IP address of a computer on the Internet, and appears as the component of a Web-site's URL.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="has-application.process">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Designed sequence of events or attribute-changes of an object, upon the execution of a particular application.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#has-port.number">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >TCP and UDP (transfer layer protocols on Ethernet) use port numbers to distinguish between different channels on the same network interface and the same computer. Port is a special number present in the header of a data packet, and is used to map data to a particlar process running on a computer.</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#has-IP.address">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Each machine connected to the Internet has IP (Internet Protocol) address in order to identify and communicate with each other. Its a 32-bit numeric address defined as the four groups of dotted decimal notation of IPv4.
+
+Multiple IP-addresses are one of the methods of hosting a number of web-sites on a single IIS-server. For our prototype system, the cardinality of an IP-address for a network-resource is set to 1.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="has-IP.range"/>
+  <owl:DatatypeProperty rdf:about="#has-MAC.address">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MAC (Media Access Control) address is a 6-byte unique identifier assigned to the network adapters (NICs).</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="is-node-of">
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:ID="has-node"/>
+    </owl:inverseOf>
+    <rdfs:comment xml:lang="en">is-node-of defines the sub-class/class hierarchy among network devices.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:about="#has-node">
+    <rdfs:comment xml:lang="en">has-node defines the class/sub-class hierarchy among network devices.</rdfs:comment>
+    <owl:inverseOf rdf:resource="#is-node-of"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:ID="comprises-of">
+    <owl:inverseOf>
+      <owl:TransitiveProperty rdf:ID="is-part-of"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:about="#is-part-of">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#comprises-of"/>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:about="#related-to">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Identifies the physical location of a networking device.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <Client-PC-C rdf:ID="Note-Bk_Kane">
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.3.4</has-IP.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >note-bk_Kane.subnet-c.sem-k-nms.com</has-domain.name>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:14:22:96:18:13</has-MAC.address>
+  </Client-PC-C>
+  <Management-Console-A rdf:ID="Management-Console_Avon">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:06:09:30:5E:FB:2C</has-MAC.address>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.4</has-IP.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >management-console_avon.subnet-a.sem-k-nms.com</has-domain.name>
+  </Management-Console-A>
+  <Router-B rdf:ID="Router_B-1">
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >router-b_1.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.2.1</has-IP.address>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:90:CC:74:B5:93</has-MAC.address>
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >520</has-port.number>
+  </Router-B>
+  <Traffic-Generator-A rdf:ID="Chariot-Console_A">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >02:23:08:3F:73:F2:5D</has-MAC.address>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.5</has-IP.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >chariot-console.subnet-a.sem-k-nms.com</has-domain.name>
+  </Traffic-Generator-A>
+  <Web-Server-A rdf:ID="Web-Server_A-1">
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.2</has-IP.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >http.app-sv_maple.subnet-a.sem-k-nms.com</has-domain.name>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:77:70</has-MAC.address>
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >80</has-port.number>
+  </Web-Server-A>
+  <Application-Server-A rdf:ID="App-Sv_Maple">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:77:70</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >app-sv_maple.subnet-a.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.2</has-IP.address>
+  </Application-Server-A>
+  <Client-PC-B rdf:ID="Note-BK_Elm">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CD:08:ED</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >note-bk_elm.subnet-b.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.2.3</has-IP.address>
+  </Client-PC-B>
+  <Hub-B rdf:ID="Hub_B-1">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:08::00:4E:07:D3:CB</has-MAC.address>
+  </Hub-B>
+  <POP-Server-A rdf:ID="POP-Server_A-1">
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pop.app-sv_maple.subnet-a.sem-k-nms.com</has-domain.name>
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >110</has-port.number>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:77:70</has-MAC.address>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.2</has-IP.address>
+  </POP-Server-A>
+  <Subnet-A rdf:ID="subnet-a.sem-k-nms.com"/>
+  <Router-C rdf:ID="Router_C-1">
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >router-c_1.sem-k-nms.com</has-domain.name>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:90:CC:74:69:6B</has-MAC.address>
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >520</has-port.number>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.3.1</has-IP.address>
+  </Router-C>
+  <Firewall rdf:ID="Net-Protect">
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.10.1</has-IP.address>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:90:CC:74:AC:8A</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >net-protect.sem-k-nms.com</has-domain.name>
+  </Firewall>
+  <Client-PC-C rdf:ID="Note-Bk_Pisces">
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.3.3</has-IP.address>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:14:22:96:22:67</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >note-bk_Pisces.subnet-c.sem-k-nms.com</has-domain.name>
+  </Client-PC-C>
+  <Router-A rdf:ID="Router_A-1">
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.1</has-IP.address>
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >520</has-port.number>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:90:CC:74:BO:77</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >router-a_1.sem-k-nms.com</has-domain.name>
+  </Router-A>
+  <Performance-Monitor-A rdf:ID="SNMP-Sv_Coral">
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >161</has-port.number>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.3</has-IP.address>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:72:9C</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >snmp-sv_coral.subnet-a.sem-k-nms.com</has-domain.name>
+  </Performance-Monitor-A>
+  <Workstation-B rdf:ID="Work-St_Aral">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:72:A6</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >work-st_Aral.subnet-b.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.2.2</has-IP.address>
+  </Workstation-B>
+  <Subnet-C rdf:ID="subnet-c.sem-k-nms.com"/>
+  <Hub-A rdf:ID="Hub_A-1">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:08::00:4E:07:C2:5C</has-MAC.address>
+  </Hub-A>
+  <Client-PC-C rdf:ID="Desk-Tp_Lynx">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:14:22:96:43:29</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >desk-tp_lynx.subnet-c.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.3.5</has-IP.address>
+  </Client-PC-C>
+  <Subnet-B rdf:ID="subnet-b.sem-k-nms.com"/>
+  <Client-PC-C rdf:ID="Desk-Tp_Fawn">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:14:22:96:42:F4</has-MAC.address>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >desk-tp_fawn.subnet-c.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.3.2</has-IP.address>
+  </Client-PC-C>
+  <Gateway rdf:ID="Gateway_ISC">
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sem-k-nms.ai.isc.tohoku.ac.jp</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >130.34.243.6</has-IP.address>
+  </Gateway>
+  <DNS-Server-A rdf:ID="DNS-Server_A-1">
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >dns.app-sv_maple.subnet-a.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.2</has-IP.address>
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >53</has-port.number>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:77:70</has-MAC.address>
+  </DNS-Server-A>
+  <SMTP-Server-A rdf:ID="SMTP-Server_A-1">
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >smtp.app-sv_maple.subnet-a.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.2</has-IP.address>
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >25</has-port.number>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:77:70</has-MAC.address>
+  </SMTP-Server-A>
+  <Bridge rdf:ID="Bridge_ABC">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:C0:4C:FC:73:50</has-MAC.address>
+  </Bridge>
+  <File-Server-A rdf:ID="File-Server_A-1">
+    <has-port.number rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >21</has-port.number>
+    <has-domain.name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >ftp.app-sv_maple.subnet-a.sem-k-nms.com</has-domain.name>
+    <has-IP.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >172.17.1.2</has-IP.address>
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:E0:4C:CC:77:70</has-MAC.address>
+  </File-Server-A>
+  <Hub-C rdf:ID="Hub_C-1">
+    <has-MAC.address rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >00:08::00:4E:07:E6:A9</has-MAC.address>
+  </Hub-C>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 513)  http://protege.stanford.edu -->
