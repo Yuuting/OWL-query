@@ -6,7 +6,7 @@
 
 ![image-20201209135743458](./基于TCPIP的网络管理系统.assets/image-20201209135743458.png)
 
-![image-20201209174054625](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201209174054625.png)
+![image-20201209174054625](./基于TCPIP的网络管理系统.assets/image-20201209174054625.png)
 
 ## 代码块
 
@@ -49,7 +49,7 @@
 4. DNS服务器，文件服务器，邮件服务器，Web服务器
 5. pop服务器，SMTP服务器
 
-![image-20201209145727450](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201209145727450.png)
+![image-20201209145727450](./基于TCPIP的网络管理系统.assets/image-20201209145727450.png)
 
 ### 从属关系
 
@@ -59,27 +59,27 @@
 2. disjointWith：不相交类，如集线器与路由器。
 3. equivalentClass：如网关管设备与子网或网桥。
 
-![image-20201209151438635](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201209151438635.png)
+![image-20201209151438635](./基于TCPIP的网络管理系统.assets/image-20201209151438635.png)
 
 #### 数据类型属性（datatype properties）
 
 定义了IP地址、IP范围、MAC地址、域名和端口号。
 
-![image-20201209154339476](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201209154339476.png)
+![image-20201209154339476](./基于TCPIP的网络管理系统.assets/image-20201209154339476.png)
 
 #### 对象属性（object properties）从属关系
 
 inverseOf：一个属性P1被标记为属性P2的逆。如comprises-of与is-part-of，has-node与is-node-of。
 
-![image-20201209154408876](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201209154408876.png)
+![image-20201209154408876](./基于TCPIP的网络管理系统.assets/image-20201209154408876.png)
 
 ### 实例化对象
 
 instances：实例化对象。具体到各个网元设备，共计27个。
 
-![image-20201209174252862](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201209174252862.png)
+![image-20201209174252862](./基于TCPIP的网络管理系统.assets/image-20201209174252862.png)
 
-![image-20201209174415995](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201209174415995.png)
+![image-20201209174415995](./基于TCPIP的网络管理系统.assets/image-20201209174415995.png)
 
 ## 基于jena的owl文件的读取与查询
 
@@ -212,7 +212,7 @@ LIMIT 100
 
 结果
 
-![image-20201211121253111](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201211121253111.png)
+![image-20201211121253111](./基于TCPIP的网络管理系统.assets/image-20201211121253111.png)
 
 ### 查询路由器属性
 
@@ -230,7 +230,7 @@ DESCRIBE <http://www.owl-ontologies.com/Ontology1179610702.owl#Router_A-1>
 
 结果
 
-![image-20201211140621636](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201211140621636.png)
+![image-20201211140621636](./基于TCPIP的网络管理系统.assets/image-20201211140621636.png)
 
 ```
 :Router_A-1  a            :Router-A ;
@@ -249,4 +249,4 @@ WHERE {?x  <http://www.w3.org/2000/01/rdf-schema#subClassOf>  ?fname}
 
 结果
 
-![image-20201211144647045](C:\Users\Administrator.DESKTOP-0CQP29C\AppData\Roaming\Typora\typora-user-images\image-20201211144647045.png)
+![image-20201211144647045](./基于TCPIP的网络管理系统.assets/image-20201211144647045.png)
